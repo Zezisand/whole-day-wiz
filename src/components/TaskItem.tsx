@@ -3,21 +3,24 @@ import { Check, X, Edit2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { AlarmSettings, TaskAlarm } from "./AlarmSettings";
 
 interface Task {
   id: string;
   text: string;
   completed: boolean;
   createdAt: Date;
+  alarm?: TaskAlarm;
 }
 
 interface TaskItemProps {
   task: Task;
   onUpdate: (id: string, updates: Partial<Task>) => void;
   onDelete: (id: string) => void;
+  onAlarmUpdate: (id: string, alarm: TaskAlarm | null) => void;
 }
 
-export const TaskItem = ({ task, onUpdate, onDelete }: TaskItemProps) => {
+export const TaskItem = ({ task, onUpdate, onDelete, onAlarmUpdate }: TaskItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(task.text);
 
@@ -112,6 +115,12 @@ export const TaskItem = ({ task, onUpdate, onDelete }: TaskItemProps) => {
           </>
         ) : (
           <>
+            <AlarmSettings
+              taskId={task.id}
+              taskText={task.text}
+              alarm={task.alarm}
+              onAlarmUpdate={(alarm) => onAlarmUpdate(task.id, alarm)}
+            />
             <Button
               size="sm"
               variant="ghost"

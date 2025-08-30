@@ -4,6 +4,7 @@ import { TaskItem, Task } from "@/components/TaskItem";
 import { TaskInput } from "@/components/TaskInput";
 import { DateSelector } from "@/components/DateSelector";
 import { TaskStats } from "@/components/TaskStats";
+import { TaskAlarm } from "@/components/AlarmSettings";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useToast } from "@/hooks/use-toast";
 
@@ -67,6 +68,17 @@ const Index = () => {
     });
   };
 
+  const updateTaskAlarm = (id: string, alarm: TaskAlarm | null) => {
+    const updatedTasks = tasksForDate.map(task =>
+      task.id === id ? { ...task, alarm } : task
+    );
+    
+    setAllTasks(prev => ({
+      ...prev,
+      [dateKey]: updatedTasks
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <div className="max-w-4xl mx-auto p-6">
@@ -122,6 +134,7 @@ const Index = () => {
                       task={task}
                       onUpdate={updateTask}
                       onDelete={deleteTask}
+                      onAlarmUpdate={updateTaskAlarm}
                     />
                   ))}
               </div>
@@ -144,6 +157,7 @@ const Index = () => {
                           task={task}
                           onUpdate={updateTask}
                           onDelete={deleteTask}
+                          onAlarmUpdate={updateTaskAlarm}
                         />
                       ))}
                   </div>
