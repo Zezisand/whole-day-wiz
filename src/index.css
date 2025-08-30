@@ -2,41 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Task Organizer Design System - Modern productivity aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Colors - Clean productivity theme */
+    --background: 247 251 255; /* Very light blue-tinted white */
+    --foreground: 215 28% 17%; /* Deep blue-gray */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 255 255 255; /* Pure white cards */
+    --card-foreground: 215 28% 17%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 255 255 255;
+    --popover-foreground: 215 28% 17%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Modern teal/blue gradient system */
+    --primary: 200 100% 42%; /* Vibrant teal-blue */
+    --primary-foreground: 255 255 255;
+    --primary-soft: 200 100% 95%; /* Very light teal background */
+    --primary-glow: 200 100% 85%; /* Soft glow effect */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Task completion states */
+    --success: 142 76% 36%; /* Fresh green for completed tasks */
+    --success-foreground: 255 255 255;
+    --success-soft: 142 76% 95%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Secondary interactions */
+    --secondary: 200 20% 97%; /* Very light blue-gray */
+    --secondary-foreground: 215 28% 17%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 200 20% 95%;
+    --muted-foreground: 215 16% 47%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 200 100% 95%;
+    --accent-foreground: 200 100% 42%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* System colors */
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 255 255 255;
 
-    --radius: 0.5rem;
+    --border: 200 20% 90%;
+    --input: 200 20% 95%;
+    --ring: 200 100% 42%;
+
+    --radius: 0.75rem; /* Slightly more rounded for modern feel */
+
+    /* Custom gradients for beautiful effects */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 42%) 0%, hsl(180 100% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(255 255 255) 0%, hsl(200 20% 99%) 100%);
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(160 76% 39%) 100%);
+
+    /* Beautiful shadows */
+    --shadow-soft: 0 1px 3px 0 hsl(200 100% 42% / 0.1), 0 1px 2px 0 hsl(200 100% 42% / 0.06);
+    --shadow-medium: 0 4px 6px -1px hsl(200 100% 42% / 0.1), 0 2px 4px -1px hsl(200 100% 42% / 0.06);
+    --shadow-large: 0 10px 15px -3px hsl(200 100% 42% / 0.1), 0 4px 6px -2px hsl(200 100% 42% / 0.05);
+    --shadow-glow: 0 0 20px hsl(200 100% 42% / 0.3);
+
+    /* Animation timings */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
